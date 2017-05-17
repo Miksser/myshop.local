@@ -1,12 +1,11 @@
 <?php
 
+include_once '../config/config.php';
+include_once '../library/mainFunctions.php';
 
 $controllerName = isset($_GET['controller']) ? ucfirst($_GET['controller']) : 'Index';
 
-echo $controllerName;
-
 $actionName = isset($_GET['action']) ? $_GET['action'] : 'index';
 
-echo $actionName;
 
-include_once '../controllers/' . $controllerName . 'Controller.php';
+loadPage($controllerName, $actionName);
