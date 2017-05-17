@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @param $controlleName
+ * @param string $actionName
+ *
+ */
 
 function loadPage ($controlleName, $actionName = 'index') {
     include_once PathPrefix . $controlleName . PathPostfix;
