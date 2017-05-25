@@ -30,6 +30,7 @@ function getAllMainCatsWithChildren()
 
     $rs = mysql_query($sql);
     $smartyRs = array();
+
     while ($row = mysql_fetch_assoc($rs)) {
 
         $rsChildren = getChildrenForCat($row['id']);

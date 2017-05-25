@@ -19,6 +19,7 @@ define('TemplateWebPath', "/templates/{$template}/");
 //подключение Smarty
 
 require('../library/Smarty/libs/Smarty.class.php');
+
 $smarty = new Smarty();
 
 $smarty->setTemplateDir(TemplatePrefix);
