@@ -4,7 +4,7 @@
 <img width="575" src="/images/products/{$rsProduct['image']}">
 Стомость: {$rsProduct['price']}
 
-<a href="#">Добавить в корзину</a>
+<a href="#" id="addCart_{$rsProduct['id']}" onclick="addToCart({$rsProduct['id']}); return false">Добавить в корзину</a>
 <p>Описание <br>
 {$rsProduct['description']}
 </p>
