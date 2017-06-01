@@ -1,11 +1,10 @@
 <?php
 
 session_start(); // стартуем сессию
-
 //если нет массива в сессии, то создаем его
 
 if (! isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
+    $_SESSION['cart'] = array();
 }
 
 include_once '../config/config.php'; //Расположены константы
@@ -16,5 +15,6 @@ $controllerName = isset($_GET['controller']) ? ucfirst($_GET['controller']) : 'I
 
 $actionName = isset($_GET['action']) ? $_GET['action'] : 'index';
 
+$smarty->assign('cartCntItems', count($_SESSION['cart']));
 
 loadPage($smarty, $controllerName, $actionName);
