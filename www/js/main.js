@@ -16,7 +16,7 @@ function addToCart(itemId) {
         dataType: 'json',
         success: function (data) {
             if (data['success']) {
-                $('#cartCntItems').html(data['ctnItems']);
+                $('#cartCntItems').html(data['cntItems']);
                 $('#addCart_' + itemId).hide();
                 $('#removeCart_' + itemId).show();
             }
@@ -32,10 +32,19 @@ function removeFromCart(itemId) {
         dataType: 'json',
         success: function (data) {
             if (data['success']) {
-                $('#cartCntItems').html(data['ctnItems']);
+                $('#cartCntItems').html(data['cntItems']);
                 $('#addCart_' + itemId).show();
                 $('#removeCart_' + itemId).hide();
             }
         }
     })
 };
+
+
+function conversionPrice(itemId) {
+    var newCnt = $('#itemCnt_' + itemId).val();
+    var itemPrice = $('#itemPrice_' + itemId).attr('value');
+    var itemRealPrice = newCnt * itemPrice;
+
+    $('#itemRealPrice_' + itemId).html(itemRealPrice);
+}

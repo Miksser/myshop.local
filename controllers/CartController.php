@@ -23,7 +23,7 @@ function addtocartAction()
 
     if (isset($_SESSION['cart']) && array_search($itemId, $_SESSION['cart']) === false) {
         $_SESSION['cart'][] = $itemId;
-        $resData['ctnItems'] = count($_SESSION['cart']);
+        $resData['cntItems'] = count($_SESSION['cart']);
         $resData['success'] = 1;
     } else {
         $resData['success'] = 0;
@@ -47,7 +47,7 @@ function removefromcartAction()
     if ($key !== false) {
         unset($_SESSION['cart'][$key]);
         $resData['success'] = 1;
-        $resData['ctnItems'] = count($_SESSION['cart']);
+        $resData['cntItems'] = count($_SESSION['cart']);
     } else {
         $resData['success'] = 0;
     }
