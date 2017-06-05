@@ -42,13 +42,28 @@ function getProductsByCat($itemId)
  * @param $itemId
  * @return array
  */
-
 function getProductById($itemId)
 {
-    $itemID =intval($itemId);
+    $itemID = intval($itemId);
     $sql = "SELECT * FROM products WHERE id ='{$itemID}'";
 
     $rs = mysql_query($sql);
 
     return mysql_fetch_assoc($rs);
+};
+
+
+/**
+ * Выбранные товары из сессии перевести на страницу корзины
+ * @param $itemsIds
+ * @return array|bool
+ */
+function getProductsFromArray($itemsIds)
+{
+    //Объеденяем все товары из корзины через запятую
+    $strIds = implode($itemsIds, ', ');
+    $sql = "SELECT * FROM products WHERE id in ({$strIds})";
+    $rs = mysql_query($sql);
+
+    return createSmartyRsArray($rs);
 }

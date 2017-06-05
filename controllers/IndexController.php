@@ -9,7 +9,8 @@ include_once '../models/ProductsModel.php';
  * @param $smarty Шаблонизатор
  */
 
-function indexAction($smarty){
+function indexAction($smarty)
+{
 
     $rsCategories = getAllMainCatsWithChildren();
     $rsProducts = getLastProducts(16);
