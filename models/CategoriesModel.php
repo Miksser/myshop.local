@@ -21,6 +21,7 @@ function getChildrenForCat($catId)
 
 /**
  * Получить главные категории с приявзками дочерних
+ * вставляется на каждом контроллере, чтобы отображать Меню сайта
  * @return array массив категорий
  */
 function getAllMainCatsWithChildren()

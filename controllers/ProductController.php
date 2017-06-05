@@ -10,13 +10,19 @@ include_once '../models/CategoriesModel.php';
 
 function indexAction($smarty)
 {
-    $catId = isset($_GET['id']) ? $_GET['id'] : null;
-    if (!$catId) exit();
+    $itemId = isset($_GET['id']) ? $_GET['id'] : null;
+    if (!$itemId) exit();
 
 //получаем данные продукта
-    $rsProduct = getProductById($catId);
+    $rsProduct = getProductById($itemId);
 
     $rsCategories = getAllMainCatsWithChildren();
+
+    //создаем флаг. С помощью него проверяем, есть ли товар в корзине или нет
+    $smarty->assign('itemInCart', 0);
+    if(in_array($itemId, $_SESSION['cart']) ) {
+        $smarty->assign('itemInCart', 1);
+    };
 
     $smarty->assign('pageTitle', '');
     $smarty->assign('rsProduct', $rsProduct);
